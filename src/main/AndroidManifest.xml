@@ -9,10 +9,10 @@
     android:minSdkVersion="16"
     android:targetSdkVersion="18"/>
 
-  <application android:name=".DeckardApplication">
+  <application android:name=".AndroidLunchApplication">
 
     <activity
-      android:name=".robolectric.DeckardActivity"
+      android:name=".pivotal.AndroidLunchActivity"
       android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
