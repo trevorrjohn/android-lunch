@@ -4,6 +4,7 @@ import android.webkit.CookieManager;
 import com.example.AndroidLunchModule;
 import com.example.AndroidModule;
 import com.example.activity.AndroidLunchActivityTest;
+import com.example.module.ApiClientModule;
 import dagger.Module;
 import dagger.Provides;
 
@@ -13,7 +14,7 @@ import static org.mockito.Mockito.mock;
 
 @Module(
     injects = {AndroidLunchActivityTest.class},
-    includes = {AndroidModule.class, AndroidLunchModule.class},
+    includes = {AndroidModule.class, AndroidLunchModule.class, ApiClientModule.class},
     overrides = true
 )
 public class TestModule {

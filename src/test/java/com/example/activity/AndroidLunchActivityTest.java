@@ -2,6 +2,7 @@ package com.example.activity;
 
 import android.app.Activity;
 import android.webkit.CookieManager;
+import com.example.api.ApiClient;
 import com.example.pivotal.activity.AndroidLunchActivity;
 import com.example.support.AndroidLunchTestRunner;
 import org.junit.Test;
@@ -17,6 +18,7 @@ import static org.junit.Assert.assertTrue;
 public class AndroidLunchActivityTest {
 
   @Inject CookieManager cookieManager;
+  @Inject ApiClient apiClient;
 
   @Test
   public void injectionWorks() {
@@ -27,5 +29,10 @@ public class AndroidLunchActivityTest {
   public void testSomething() throws Exception {
     Activity activity = Robolectric.buildActivity(AndroidLunchActivity.class).create().get();
     assertTrue(activity != null);
+  }
+
+  @Test
+  public void apiClient() {
+    assertNotNull(apiClient);
   }
 }

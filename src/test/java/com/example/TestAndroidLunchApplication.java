@@ -6,6 +6,7 @@ import org.robolectric.TestLifecycleApplication;
 import java.lang.reflect.Method;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class TestAndroidLunchApplication extends AndroidLunchApplication implements TestLifecycleApplication {
 
   @Override

@@ -1,6 +1,7 @@
 package com.example;
 
 import android.app.Application;
+import com.example.module.ApiClientModule;
 import dagger.ObjectGraph;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class AndroidLunchApplication extends Application {
 
     modules.add(new AndroidModule(this));
     modules.add(new AndroidLunchModule());
+    modules.add(new ApiClientModule());
 
     return modules;
   }
