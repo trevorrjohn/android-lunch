@@ -1,9 +1,7 @@
 package com.example;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.location.LocationManager;
 import android.preference.PreferenceManager;
 import dagger.Module;
 import dagger.Provides;
@@ -18,7 +16,8 @@ public class AndroidModule {
     this.application = application;
   }
 
-  @Provides @Singleton
+  @Provides
+  @Singleton
   @ForApplication
   Context provideApplicationContext() {
     return application;

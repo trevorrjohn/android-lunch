@@ -3,11 +3,11 @@ package com.example;
 import android.app.Application;
 import dagger.ObjectGraph;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AndroidLunchApplication extends Application {
-private ObjectGraph objectGraph;
+  private ObjectGraph objectGraph;
 
   @Override
   public void onCreate() {
@@ -15,14 +15,16 @@ private ObjectGraph objectGraph;
     objectGraph = ObjectGraph.create(getModules().toArray());
   }
 
-  public void inject(Object object) {
-    objectGraph.inject(object);
+  public <T> T inject(T object) {
+    return objectGraph.inject(object);
   }
 
   protected List<Object> getModules() {
-    return Arrays.asList(
-        new AndroidModule(this),
-        new AndroidLunchModule()
-    );
+    ArrayList<Object> modules = new ArrayList<Object>();
+
+    modules.add(new AndroidModule(this));
+    modules.add(new AndroidLunchModule());
+
+    return modules;
   }
 }

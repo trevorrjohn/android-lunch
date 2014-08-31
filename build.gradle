@@ -70,6 +70,7 @@ dependencies {
   androidTestCompile group: 'junit', name: 'junit', version: '4.11'
   androidTestCompile group: 'org.robolectric', name: 'robolectric', version: '2.4-SNAPSHOT'
   androidTestCompile group: 'com.squareup', name: 'fest-android', version: '1.0.+'
+  androidTestCompile group: 'org.mockito', name: 'mockito-core', version: '1.9.5+'
 }
 
 apply plugin: 'idea'
