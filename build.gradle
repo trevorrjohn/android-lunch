@@ -1,0 +1,84 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath group: 'com.android.tools.build', name: 'gradle', version: '0.10.+'
+    classpath group: 'org.robolectric.gradle', name: 'gradle-android-test-plugin', version: '0.10.+'
+  }
+}
+
+allprojects {
+  repositories {
+    mavenCentral()
+  }
+}
+
+apply plugin: 'android'
+apply plugin: 'android-test'
+
+android {
+  packagingOptions {
+    exclude 'LICENSE.txt'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'META-INF/NOTICE'
+  }
+
+  compileSdkVersion 18
+  buildToolsVersion "19.1.0"
+
+  defaultConfig {
+    minSdkVersion 16
+    targetSdkVersion 18
+    versionCode 1
+    versionName "1.0.0-SNAPSHOT"
+  }
+
+  buildTypes {
+    release {
+      runProguard false
+    }
+  }
+
+  sourceSets {
+    androidTest {
+      setRoot('src/test')
+    }
+  }
+}
+
+androidTest {
+  include '**/*Test.class'
+  maxHeapSize = "2048m"
+}
+
+dependencies {
+  repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+      url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+  }
+
+  androidTestCompile group: 'junit', name: 'junit', version: '4.11'
+  androidTestCompile group: 'org.robolectric', name: 'robolectric', version: '2.4-SNAPSHOT'
+  androidTestCompile group: 'com.squareup', name: 'fest-android', version: '1.0.+'
+}
+
+apply plugin: 'idea'
+
+idea {
+  module {
+    testOutputDir = file 'build/test-classes/debug'
+  }
+}
+
+if (System.getProperty("intellij")) {
+  exec {
+    commandLine "scripts/fix_intellij_dependencies.sh"
+  }
+}
