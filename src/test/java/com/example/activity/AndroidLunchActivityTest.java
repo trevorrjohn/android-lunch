@@ -1,7 +1,7 @@
 package com.example.activity;
 
 import android.app.Activity;
-import com.example.pivotal.AndroidLunchActivity;
+import com.example.pivotal.activity.AndroidLunchActivity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;

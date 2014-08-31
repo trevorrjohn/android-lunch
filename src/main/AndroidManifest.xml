@@ -12,7 +12,7 @@
   <application android:name=".AndroidLunchApplication">
 
     <activity
-      android:name=".pivotal.AndroidLunchActivity"
+      android:name=".pivotal.activity.AndroidLunchActivity"
       android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>

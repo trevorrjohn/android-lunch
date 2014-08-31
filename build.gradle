@@ -64,6 +64,9 @@ dependencies {
     }
   }
 
+  compile group: 'com.squareup.dagger', name: 'dagger-compiler', version: '1.2.2'
+  compile group: 'com.squareup.dagger', name: 'dagger', version: '1.2.2'
+
   androidTestCompile group: 'junit', name: 'junit', version: '4.11'
   androidTestCompile group: 'org.robolectric', name: 'robolectric', version: '2.4-SNAPSHOT'
   androidTestCompile group: 'com.squareup', name: 'fest-android', version: '1.0.+'
