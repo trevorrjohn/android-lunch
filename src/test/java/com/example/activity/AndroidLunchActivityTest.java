@@ -1,31 +1,32 @@
 package com.example.activity;
 
-import android.app.Activity;
-import com.example.model.Foo;
+import com.example.api.ApiClient;
+import com.example.api.FlightRequest;
 import com.example.pivotal.AndroidLunchActivity;
 import com.example.support.AndroidLunchTestRunner;
 import com.example.support.InjectMock;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.robolectric.Robolectric;
+import retrofit.Callback;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.verify;
 
 @RunWith(AndroidLunchTestRunner.class)
 public class AndroidLunchActivityTest {
-  @InjectMock Foo foo;
+  @InjectMock ApiClient apiClient;
 
-  @Test
-  public void testSomething() throws Exception {
-    Activity activity = Robolectric.buildActivity(AndroidLunchActivity.class).create().get();
-    assertTrue(activity != null);
+  private AndroidLunchActivity subject;
+
+  @Before
+  public void setUp() throws Exception {
+    subject = Robolectric.setupActivity(AndroidLunchActivity.class);
   }
 
   @Test
-  public void injectMock() {
-    Mockito.stub(foo.isTrue()).toReturn(false);
-    assertFalse(foo.isTrue());
+  public void onResume_requestsFlightDetails() {
+    verify(apiClient).search(isA(FlightRequest.class), isA(Callback.class));
   }
 }
