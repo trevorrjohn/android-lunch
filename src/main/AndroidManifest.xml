@@ -9,7 +9,7 @@
     android:minSdkVersion="16"
     android:targetSdkVersion="18"/>
 
-  <application android:name=".AndroidLunchApplication">
+  <application android:name=".Application">
 
     <activity
       android:name=".pivotal.AndroidLunchActivity"
